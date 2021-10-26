@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from quizzes.models import Category, Choice, Question
+from quizzes.models import Category, Choice, Question, Result
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -21,3 +21,4 @@ class QuestionAdmin(admin.ModelAdmin):
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Result)

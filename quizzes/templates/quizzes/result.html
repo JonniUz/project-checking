@@ -1,39 +1,39 @@
 {% extends './base.html' %}
 
 {% block main %}
-<a href="">
-    <button>My Account</button>
-</a>
-<dl>
-    {% for question in questions_l %}
-    <dt>
-        <p>
-            {{ forloop.counter }}.{{ question.title }}
-        </p>
-    </dt>
-    {% for choice in question.choice_set.all %}
-    {% if choice.correct %}
-    <dd style="color: green;">
-        <strong>
-            {{ choice.answer_text }}
-        </strong>
-    </dd>
-    {% elif choice.id in answer %}
-    <dd style="color:red;">
-        {{ choice.answer_text }}
-    </dd>
-    {% else %}
-    <dd>
-        {{ choice.answer_text }}
-    </dd>
-    {% endif %}
-    {% endfor %}
-    <hr>
-    {% endfor %}
-    <a style="text-decoration:none;" href="{% url 'quizzes:index' %}">
-        <button>Home</button>
+    <a href="">
+        <button>My Account</button>
     </a>
-</dl>
+    <dl>
+        {% for question in questions_l %}
+            <dt>
+                <p>
+                    {{ forloop.counter }}.{{ question.title }}
+                </p>
+            </dt>
+            {% for choice in question.choice_set.all %}
+                {% if choice.correct %}
+                    <dd style="color: green;">
+                        <strong>
+                            {{ choice.answer_text }}
+                        </strong>
+                    </dd>
+                {% elif choice.id in answer %}
+                    <dd style="color:red;">
+                        {{ choice.answer_text }}
+                    </dd>
+                {% else %}
+                    <dd>
+                        {{ choice.answer_text }}
+                    </dd>
+                {% endif %}
+            {% endfor %}
+            <hr>
+        {% endfor %}
+        <a style="text-decoration:none;" href="{% url 'quizzes:index' %}">
+            <button>Home</button>
+        </a>
+    </dl>
 
 
 {% endblock %}

@@ -13,8 +13,8 @@
     <h3 style="color:Green;" class="card-title">
     {{ object.subject }} </h3>
     <p class="card-text">Sizning <strong style="color:blue;">{{ object.subject }}</strong> fani bo'yicha eng yuqori natijangiz: <strong>{{ object.result|floatformat:2 }}%</strong></p>
-    <a href="{% url 'polls:questions' object.subject.id %}" class="btn btn-primary">Qayta urinish</a>
-    <a href="{% url 'polls:index' %}"><button class="btn btn-primary">Home</button></a>
+    <a href="{% url 'quizzes:question' object.subject.slug %}" class="btn btn-primary">Qayta urinish</a>
+    <a href="{% url 'quizzes:index' %}"><button class="btn btn-primary">Home</button></a>
       <hr>
   </div>
     {% endfor %}
@@ -23,7 +23,7 @@
     <p class="card-text">
         Siz xali xech qanday fandan test topshirmadingiz
     </p>
-    <a href="{% url 'polls:index' %}"><button>Home</button></a>
+    <a href="{% url 'quizzes:index' %}"><button>Home</button></a>
     <hr>
     {% endif %}
 
