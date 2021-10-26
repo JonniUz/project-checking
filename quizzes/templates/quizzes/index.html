@@ -1,0 +1,17 @@
+{% extends './base.html' %}
+
+{% block main %}
+
+<h4 class="btn btn-warning"> Bilimingizni sinab ko'rish uchun fanni tanlang!</h4>
+{% for fan in object_list %}
+<div class="list-group">
+    <a href="{% url 'quizzes:question' fan.slug %}" class="list-group-item list-group-item-action list-group-item-primary">
+        {{ fan.title }}
+    </a>
+</div>
+
+{% endfor %}
+
+{% endblock %}
+<!--       <a href="{% url 'logout' %}"><button class="btn btn-outline-info">Log out</button></a>-->
+<!--<a href="{% url 'polls:user_account' %}"><button class="btn btn-outline-info">My Account</button></a>-->
